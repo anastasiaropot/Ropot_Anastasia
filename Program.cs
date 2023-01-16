@@ -1,7 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Ropot_Anastasia.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<Ropot_AnastasiaContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Ropot_AnastasiaContext") ?? throw new InvalidOperationException("Connection string 'Ropot_AnastasiaContext' not found.")));
 
 var app = builder.Build();
 

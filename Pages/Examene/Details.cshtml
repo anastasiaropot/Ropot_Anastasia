@@ -1,0 +1,45 @@
+﻿@page
+@model Ropot_Anastasia.Pages.Examene.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Examen</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Examen.Materie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Examen.Materie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Examen.Sala)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Examen.Sala)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Examen.Profesor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Examen.Profesor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Examen.DataExamen)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Examen.DataExamen)
+        </dd>
+
+       
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Examen?.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
