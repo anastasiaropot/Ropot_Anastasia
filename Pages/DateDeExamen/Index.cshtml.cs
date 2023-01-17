@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Ropot_Anastasia.Data;
 using Ropot_Anastasia.Models;
 
-namespace Ropot_Anastasia.Pages.DateExamen
+namespace Ropot_Anastasia.Pages.DateDeExamen
 {
     public class IndexModel : PageModel
     {
@@ -19,13 +19,13 @@ namespace Ropot_Anastasia.Pages.DateExamen
             _context = context;
         }
 
-        public IList<Data_Examen> Data_Examen { get;set; } = default!;
+        public IList<Data_Ex> Data_Ex { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Data_Examen != null)
+            if (_context.Data_Ex != null)
             {
-                Data_Examen = await _context.Data_Examen.ToListAsync();
+                Data_Ex = await _context.Data_Ex.ToListAsync();
             }
         }
     }

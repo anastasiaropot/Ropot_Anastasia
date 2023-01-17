@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Ropot_Anastasia.Data;
 using Ropot_Anastasia.Models;
 
-namespace Ropot_Anastasia.Pages.DateExamen
+namespace Ropot_Anastasia.Pages.DateDeExamen
 {
     public class EditModel : PageModel
     {
@@ -21,21 +21,21 @@ namespace Ropot_Anastasia.Pages.DateExamen
         }
 
         [BindProperty]
-        public Data_Examen Data_Examen { get; set; } = default!;
+        public Data_Ex Data_Ex { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Data_Examen == null)
+            if (id == null || _context.Data_Ex == null)
             {
                 return NotFound();
             }
 
-            var data_examen =  await _context.Data_Examen.FirstOrDefaultAsync(m => m.ID == id);
-            if (data_examen == null)
+            var data_ex =  await _context.Data_Ex.FirstOrDefaultAsync(m => m.ID == id);
+            if (data_ex == null)
             {
                 return NotFound();
             }
-            Data_Examen = data_examen;
+            Data_Ex = data_ex;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace Ropot_Anastasia.Pages.DateExamen
                 return Page();
             }
 
-            _context.Attach(Data_Examen).State = EntityState.Modified;
+            _context.Attach(Data_Ex).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace Ropot_Anastasia.Pages.DateExamen
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!Data_ExamenExists(Data_Examen.ID))
+                if (!Data_ExExists(Data_Ex.ID))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace Ropot_Anastasia.Pages.DateExamen
             return RedirectToPage("./Index");
         }
 
-        private bool Data_ExamenExists(int id)
+        private bool Data_ExExists(int id)
         {
-          return _context.Data_Examen.Any(e => e.ID == id);
+          return _context.Data_Ex.Any(e => e.ID == id);
         }
     }
 }

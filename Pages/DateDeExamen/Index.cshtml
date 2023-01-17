@@ -1,5 +1,5 @@
 ﻿@page
-@model Ropot_Anastasia.Pages.DateExamen.IndexModel
+@model Ropot_Anastasia.Pages.DateDeExamen.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -14,16 +14,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Data_Examen[0].Data_Ex)
+                @Html.DisplayNameFor(model => model.Data_Ex[0].Dati_de_examen)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Data_Examen) {
+@foreach (var item in Model.Data_Ex) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Data_Ex)
+                @Html.DisplayFor(modelItem => item.Dati_de_examen)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

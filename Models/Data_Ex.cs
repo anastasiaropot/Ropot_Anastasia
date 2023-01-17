@@ -1,9 +1,9 @@
 ﻿namespace Ropot_Anastasia.Models
 {
-    public class Data_Examen
+    public class Data_Ex
     {
         public int ID { get; set; }
-        public decimal Data_Ex{ get; set; }
+        public DateTime Dati_de_examen{ get; set; }
         public ICollection<Examen>? Examene { get; set; } //navigation property
     }
 }

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Ropot_Anastasia.Data;
 using Ropot_Anastasia.Models;
 
-namespace Ropot_Anastasia.Pages.DateExamen
+namespace Ropot_Anastasia.Pages.DateDeExamen
 {
     public class DetailsModel : PageModel
     {
@@ -19,23 +19,23 @@ namespace Ropot_Anastasia.Pages.DateExamen
             _context = context;
         }
 
-      public Data_Examen Data_Examen { get; set; }
+      public Data_Ex Data_Ex { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Data_Examen == null)
+            if (id == null || _context.Data_Ex == null)
             {
                 return NotFound();
             }
 
-            var data_examen = await _context.Data_Examen.FirstOrDefaultAsync(m => m.ID == id);
-            if (data_examen == null)
+            var data_ex = await _context.Data_Ex.FirstOrDefaultAsync(m => m.ID == id);
+            if (data_ex == null)
             {
                 return NotFound();
             }
             else 
             {
-                Data_Examen = data_examen;
+                Data_Ex = data_ex;
             }
             return Page();
         }

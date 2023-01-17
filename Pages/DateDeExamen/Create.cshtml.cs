@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Ropot_Anastasia.Data;
 using Ropot_Anastasia.Models;
 
-namespace Ropot_Anastasia.Pages.DateExamen
+namespace Ropot_Anastasia.Pages.DateDeExamen
 {
     public class CreateModel : PageModel
     {
@@ -25,7 +25,7 @@ namespace Ropot_Anastasia.Pages.DateExamen
         }
 
         [BindProperty]
-        public Data_Examen Data_Examen { get; set; }
+        public Data_Ex Data_Ex { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -36,7 +36,7 @@ namespace Ropot_Anastasia.Pages.DateExamen
                 return Page();
             }
 
-            _context.Data_Examen.Add(Data_Examen);
+            _context.Data_Ex.Add(Data_Ex);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
