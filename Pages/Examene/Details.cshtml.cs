@@ -38,9 +38,6 @@ namespace Ropot_Anastasia.Pages.Examene
             else 
             {
                 Examen = examen;
-                ViewData["Data_Ex"] = new SelectList(_context.Set<Data_Ex>(), "ID",
-                "Data_Ex");
-
             }
             return Page();
         }

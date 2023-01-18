@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Ropot_Anastasia.Data;
 
@@ -11,9 +12,10 @@ using Ropot_Anastasia.Data;
 namespace Ropot_Anastasia.Migrations
 {
     [DbContext(typeof(Ropot_AnastasiaContext))]
-    partial class Ropot_AnastasiaContextModelSnapshot : ModelSnapshot
+    [Migration("20230118202712_nnn")]
+    partial class nnn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

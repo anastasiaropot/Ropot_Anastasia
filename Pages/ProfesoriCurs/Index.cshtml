@@ -1,0 +1,43 @@
+﻿@page "{id:int?}"
+@model Ropot_Anastasia.Pages.ProfesoriCurs.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Profesori titulari curs</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfesorCurs[0].Nume_ProfesorCurs)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProfesorCursData.ProfesoriCurs)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.ProfesorCursID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume_ProfesorCurs)
+            </td>
+            <td>
+                <a asp-page="./Index" asp-route-id="@item.ID">Select</a> |
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

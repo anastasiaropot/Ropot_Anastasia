@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Ropot_Anastasia.Data;
 using Ropot_Anastasia.Models;
 
-namespace Ropot_Anastasia.Pages.DateDeExamen
+namespace Ropot_Anastasia.Pages.ProfesoriCurs
 {
     public class EditModel : PageModel
     {
@@ -21,21 +21,21 @@ namespace Ropot_Anastasia.Pages.DateDeExamen
         }
 
         [BindProperty]
-        public Data_Ex Data_Ex { get; set; } = default!;
+        public ProfesorCurs ProfesorCurs { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Data_Ex == null)
+            if (id == null || _context.ProfesorCurs == null)
             {
                 return NotFound();
             }
 
-            var data_ex =  await _context.Data_Ex.FirstOrDefaultAsync(m => m.ID == id);
-            if (data_ex == null)
+            var profesorcurs =  await _context.ProfesorCurs.FirstOrDefaultAsync(m => m.ID == id);
+            if (profesorcurs == null)
             {
                 return NotFound();
             }
-            Data_Ex = data_ex;
+            ProfesorCurs = profesorcurs;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace Ropot_Anastasia.Pages.DateDeExamen
                 return Page();
             }
 
-            _context.Attach(Data_Ex).State = EntityState.Modified;
+            _context.Attach(ProfesorCurs).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace Ropot_Anastasia.Pages.DateDeExamen
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!Data_ExExists(Data_Ex.ID))
+                if (!ProfesorCursExists(ProfesorCurs.ID))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace Ropot_Anastasia.Pages.DateDeExamen
             return RedirectToPage("./Index");
         }
 
-        private bool Data_ExExists(int id)
+        private bool ProfesorCursExists(int id)
         {
-          return _context.Data_Ex.Any(e => e.ID == id);
+          return _context.ProfesorCurs.Any(e => e.ID == id);
         }
     }
 }

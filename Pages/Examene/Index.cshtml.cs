@@ -19,14 +19,17 @@ namespace Ropot_Anastasia.Pages.Examene
             _context = context;
         }
 
-        public IList<Examen> Examen { get;set; } = default!;
-
+        public IList<Examen> Examen { get; set; } = default!;
+        public string ExamenSort { get; set; }
+        public string ProfesorSort { get; set; }
+        public string CurrentFilter { get; set; }
         public async Task OnGetAsync()
         {
+
             if (_context.Examen != null)
             {
                 Examen = await _context.Examen
-                    .Include(b => b.Data_Ex)
+                    .Include(b => b.ProfesorCurs)
                     .ToListAsync();
             }
         }

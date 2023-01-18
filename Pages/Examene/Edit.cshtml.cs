@@ -37,8 +37,8 @@ namespace Ropot_Anastasia.Pages.Examene
                 return NotFound();
             }
             Examen = examen;
-            ViewData["Data_ExID"] = new SelectList(_context.Set<Data_Ex>(), "ID",
-"Dati_de_examen");
+            ViewData["ProfesorCursID"] = new SelectList(_context.Set<ProfesorCurs>(), "ID",
+           "NumeProfesorCurs");
 
             return Page();
         }

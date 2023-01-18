@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Ropot_Anastasia.Data;
 using Ropot_Anastasia.Models;
 
-namespace Ropot_Anastasia.Pages.DateDeExamen
+namespace Ropot_Anastasia.Pages.ProfesoriCurs
 {
     public class DeleteModel : PageModel
     {
@@ -20,40 +20,40 @@ namespace Ropot_Anastasia.Pages.DateDeExamen
         }
 
         [BindProperty]
-      public Data_Ex Data_Ex { get; set; }
+      public ProfesorCurs ProfesorCurs { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Data_Ex == null)
+            if (id == null || _context.ProfesorCurs == null)
             {
                 return NotFound();
             }
 
-            var data_ex = await _context.Data_Ex.FirstOrDefaultAsync(m => m.ID == id);
+            var profesorcurs = await _context.ProfesorCurs.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (data_ex == null)
+            if (profesorcurs == null)
             {
                 return NotFound();
             }
             else 
             {
-                Data_Ex = data_ex;
+                ProfesorCurs = profesorcurs;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Data_Ex == null)
+            if (id == null || _context.ProfesorCurs == null)
             {
                 return NotFound();
             }
-            var data_ex = await _context.Data_Ex.FindAsync(id);
+            var profesorcurs = await _context.ProfesorCurs.FindAsync(id);
 
-            if (data_ex != null)
+            if (profesorcurs != null)
             {
-                Data_Ex = data_ex;
-                _context.Data_Ex.Remove(Data_Ex);
+                ProfesorCurs = profesorcurs;
+                _context.ProfesorCurs.Remove(ProfesorCurs);
                 await _context.SaveChangesAsync();
             }
 

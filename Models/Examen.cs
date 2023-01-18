@@ -15,15 +15,15 @@ namespace Ropot_Anastasia.Models
         public string Materie { get; set; }
 
 
-        [Column(TypeName = "decimal(3, 0)")]
+        [Column(TypeName = "decimal (3,0)")]
         public decimal Sala { get; set; }
+        public string Profesor{ get; set; }
         [DataType(DataType.Date)]
         public DateTime DataExamen { get; set; }
-        public int? Data_ExID { get; set; }
-        public Data_Ex? Data_Ex { get; set; } //navigation property
-        public string Profesor{ get; set; }
-        
-    } 
+        public int? ProfesorCursID { get; set; }
+        public ProfesorCurs? ProfesorCurs { get; set; } //navigation property
+}
+   
 
 
 

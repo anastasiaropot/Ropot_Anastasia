@@ -16,7 +16,8 @@ namespace Ropot_Anastasia.Data
 
         public DbSet<Ropot_Anastasia.Models.Examen> Examen { get; set; } = default!;
 
-        public DbSet<Ropot_Anastasia.Models.Data_Ex> Data_Ex { get; set; }
+        public DbSet<Ropot_Anastasia.Models.ProfesorCurs> ProfesorCurs { get; set; }
+
 
     }
 }
